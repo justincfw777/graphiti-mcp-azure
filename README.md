@@ -118,7 +118,7 @@ After successful deployment, you'll have:
 
 ### 🔐 Credentials
 - **Neo4j Username**: `neo4j`
-- **Neo4j Password**: `GRaPh@Cr0wn`
+- **Neo4j Password**: `Password`
 
 ### 🏗️ Architecture Components
 - **Neo4j Database** (Container Instance) - Graph database for knowledge storage
