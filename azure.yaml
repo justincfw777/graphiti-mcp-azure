@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: graphiti-prod
+metadata:
+  template: graphiti-prod@0.0.1-beta
+  
+infra:
+  provider: bicep
+  path: infra
+  
+services:
+  graphiti-mcp:
+    project: ./src/graphiti-mcp
+    language: docker
+    host: containerapp
+    
+hooks:
+  preprovision:
+    shell: sh
+    run: |
+      echo "Preparing Graphiti deployment..."
+      
+  postprovision:
+    shell: sh
+    run: |
+      echo "Graphiti deployment completed!"
+      echo "MCP Server URL: $GRAPHITI_MCP_URL"
+      echo "Neo4j Browser URL: $NEO4J_BROWSER_URL"
+      echo "Neo4j Bolt URL: $NEO4J_BOLT_URL"
+      echo "Neo4j Username: neo4j"
+      echo "Neo4j Password: $NEO4J_PASSWORD" 

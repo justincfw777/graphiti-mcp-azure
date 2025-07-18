@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "graphiti-memory": {
+      "url": "https://graphiti-prod-62wsx44lrwxag-mcp.yellowwater-1cbf9c87.westus2.azurecontainerapps.io/sse",
+      "description": "Graphiti knowledge graph memory system for AI agents"
+    }
+  }
+} 
