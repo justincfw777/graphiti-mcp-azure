@@ -1,147 +1,253 @@
-# StudyMgmt - Next-Generation Study Management System
+# Graphiti MCP Azure Deployment
 
-A comprehensive prototype for preclinical study management with modern web technologies.
+A complete Azure deployment system for Graphiti knowledge graph memory system, designed for integration with Cursor IDE and AI agents.
 
 ## 🏗️ Overview
 
-StudyMgmt is a next-generation study management platform designed to manage preclinical study projects, supporting Protocol Authoring, Data Analysis, and Report Generation. The system offers high performance for large datasets and many users, with an elegant, modern, and intuitive UI/UX.
+This project provides a streamlined Azure deployment of Graphiti MCP (Model Context Protocol) server using Azure Developer CLI (azd) with Bicep infrastructure as code. The deployment creates a knowledge graph memory system that enables AI agents in Cursor IDE to maintain context and remember information across sessions.
 
 ## ✨ Features
 
-### 🏠 Dashboard
-- **Usage Analytics**: Visualize system usage statistics, user activity, and report generations
-- **Recent Activities & Logs**: Track user activities with filtering and search capabilities
-- **Custom Widgets**: User-customizable dashboard layout with pluggable widgets
-- **Top Studies & Users**: Highlight most active studies and users
+### 🚀 One-Click Deployment
+- **Automated Setup**: Complete deployment with a single script execution
+- **Azure Developer CLI**: Modern deployment tooling with Bicep templates
+- **Infrastructure as Code**: Reproducible deployments with version control
+- **Optimized Architecture**: Streamlined services for cost efficiency
 
-### 📊 Report Generation
-- **Project Selection & Data Filtering**: Advanced filtering by animal, group, date, and custom fields
-- **Hupharm Parameter Adjustment**: Configure analysis parameters with preset management
-- **Visualization Creation**: Generate customizable charts and tables with real-time preview
-- **Report Template Selection**: Choose from templates with inline preview capabilities
-- **Export & Versioning**: Export to Word format with version control and history tracking
+### 🧠 Knowledge Graph Memory
+- **Persistent Memory**: AI agents can store and retrieve information across sessions
+- **Contextual Understanding**: Enhanced AI performance through memory retention
+- **Graph Database**: Neo4j for efficient relationship storage and querying
+- **MCP Protocol**: Standard protocol for AI agent memory integration
 
-### 📋 Protocol Builder
-- **Protocol Authoring & Editing**: Modular chapter/section system with drag-and-drop editing
-- **Versioning & Collaboration**: Real-time collaboration with comments and change tracking
-- **Approval Workflow**: Configurable multi-step approval processes
-- **Rich Text Editor**: Professional editing interface with formatting tools
+### 🔧 Cursor IDE Integration
+- **Seamless Integration**: Direct MCP server connection to Cursor IDE
+- **Enhanced AI Capabilities**: AI agents with persistent memory and context
+- **Real-time Synchronization**: Instant memory updates across sessions
+- **Simple Configuration**: Easy setup with provided configuration files
 
-### ❓ Help Center
-- **Comprehensive Documentation**: Structured help articles with search functionality
-- **Video Tutorials**: Step-by-step video guides with playback controls
-- **Contextual Help**: Inline help and tooltips throughout the application
-- **FAQ System**: Expandable frequently asked questions with search
-
-### ⚙️ Administration
-- **User & Permission Management**: Role-based access control with fine-grained permissions
-- **Data Integration & Sync**: External system integrations (LIMS, ELN, Cloud Storage)
-- **System Settings**: Configurable system-wide settings and preferences
-- **Audit Logs**: Comprehensive activity logging with filtering and export capabilities
+### ☁️ Azure Cloud Infrastructure
+- **Container Apps**: Scalable, serverless container hosting
+- **Neo4j Database**: Dedicated graph database container instance
+- **Azure OpenAI**: Integrated AI processing capabilities
+- **Security**: Azure Key Vault for secure credential management
 
 ## 🛠️ Technology Stack
 
-- **Frontend**: HTML5, Tailwind CSS, JavaScript (ES6+)
-- **Charts**: Chart.js for data visualizations
-- **Icons**: Font Awesome for consistent iconography
-- **Interactions**: SortableJS for drag-and-drop functionality
-- **Design**: CrownBio branding with modern UI/UX principles
+- **Infrastructure**: Azure Developer CLI (azd), Bicep templates
+- **Database**: Neo4j 5.26.2 (Container Instance)
+- **MCP Server**: Official Docker image (`zepai/knowledge-graph-mcp:latest`)
+- **AI**: Azure OpenAI (GPT-4.1-mini)
+- **Hosting**: Azure Container Apps, Azure Container Instances
+- **Security**: Azure Key Vault, managed identities
 
 ## 📁 Project Structure
 
 ```
-StudyMgmt/
-├── Prototype/
-│   ├── index.html              # Dashboard - Main landing page
-│   ├── reports.html            # Report Generation module
-│   ├── protocols.html          # Protocol Builder module
-│   ├── help.html              # Help Center module
-│   ├── admin.html             # Administration module
-│   ├── study-list.html        # Study management
-│   ├── assets/
-│   │   └── js/
-│   │       └── common.js      # Shared JavaScript functionality
-│   ├── data-source-forms.js   # Data source configuration
-│   ├── PROJECT_SUMMARY.md     # Detailed project documentation
-│   └── README.md              # Prototype-specific documentation
-└── README.md                  # This file
+Graphiti/
+├── azure.yaml                    # Azure Developer CLI configuration
+├── setup.sh                      # One-click deployment script
+├── cursor-mcp-config.json        # Cursor IDE MCP configuration
+├── infra/
+│   ├── main.bicep                # Main infrastructure template
+│   ├── main.parameters.json      # Template parameters
+│   └── resources.bicep           # Resource definitions
+├── DEPLOYMENT_INSTRUCTIONS.md    # Detailed deployment guide
+├── DEPLOYMENT_SUMMARY.md         # Current deployment status
+└── README.md                     # This file
 ```
 
-## 🚀 Getting Started
+## 🚀 Quick Start
 
-1. **Open the Application**
-   ```bash
-   # Navigate to the prototype directory
-   cd Prototype
-   
-   # Open index.html in your web browser
-   open index.html
-   ```
+### Prerequisites
 
-2. **Navigation**
-   - Use the sidebar menu to switch between different modules
-   - Each module is a separate HTML file with its own functionality
-   - The navigation header remains consistent across all pages
+Ensure you have the required tools installed:
 
-3. **Features to Explore**
-   - **Dashboard**: View system analytics and recent activities
-   - **Reports**: Create and export study reports with visualizations
-   - **Protocols**: Build and collaborate on study protocols
-   - **Help**: Access documentation and tutorials
-   - **Admin**: Manage users, integrations, and system settings
+```bash
+# Check Azure CLI
+az --version
 
-## 🎨 Key Design Features
+# Check Azure Developer CLI
+azd version
 
-### Modern UI/UX
-- **CrownBio Branding**: Custom CSS variables for consistent branding
-- **Gradient Backgrounds**: Purple-to-blue gradients for visual appeal
-- **Card-based Layout**: Clean, organized information presentation
-- **Interactive Elements**: Hover effects and smooth transitions
-- **Responsive Design**: Works on desktop and tablet devices
+# Check Docker (optional, for local testing)
+docker --version
+```
 
-### Interactive Components
-- **Real-time Charts**: Dynamic data visualizations using Chart.js
-- **Drag-and-Drop**: Sortable sections in Protocol Builder
-- **Toggle Switches**: Modern on/off controls for settings
-- **Modal-like Previews**: In-place preview functionality
+### 1. Clone and Setup
 
-## 🔧 Development
+```bash
+git clone https://github.com/justincfw777/graphiti-mcp-azure.git
+cd graphiti-mcp-azure
+```
 
-### Browser Compatibility
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
+### 2. Configure OpenAI API Key
 
-### Code Quality
-- Semantic HTML5 structure
-- Modern CSS with Tailwind utility classes
-- Clean, readable JavaScript with ES6+ features
-- Consistent naming conventions and organization
+Edit `setup.sh` and replace the placeholder with your actual OpenAI API key:
 
-## 🚀 Future Enhancements
+```bash
+export OPENAI_API_KEY="your-actual-openai-api-key-here"
+```
 
-- **Backend Integration**: Connect to real APIs and databases
-- **Authentication**: Implement proper user authentication system
-- **Real-time Collaboration**: WebSocket-based real-time features
-- **Mobile App**: Native mobile application development
-- **Advanced Analytics**: Machine learning-powered insights
-- **Plugin System**: Extensible plugin architecture
+### 3. Deploy to Azure
+
+```bash
+# Run the automated deployment script
+./setup.sh
+```
+
+The script will:
+- Login to Azure and set the subscription
+- Initialize the azd environment
+- Deploy the infrastructure using Bicep templates
+- Build and deploy the container applications
+- Display access URLs and credentials
+
+### 4. Configure Cursor IDE
+
+After deployment, update `cursor-mcp-config.json` with your MCP server URL and add it to Cursor settings.
+
+## 📊 Deployed Services
+
+After successful deployment, you'll have:
+
+### 🔗 Access URLs
+- **MCP Server**: `https://graphiti-prod-{token}-mcp.westus2.azurecontainerapps.io/sse`
+- **Neo4j Browser**: `http://{public-ip}:7474`
+- **Neo4j Bolt**: `bolt://{public-ip}:7687`
+
+### 🔐 Credentials
+- **Neo4j Username**: `neo4j`
+- **Neo4j Password**: `GRaPh@Cr0wn`
+
+### 🏗️ Architecture Components
+- **Neo4j Database** (Container Instance) - Graph database for knowledge storage
+- **MCP Server** (Container App) - Cursor IDE integration endpoint
+- **Container App Environment** - Runtime environment for containerized services
+- **Supporting Services** - Registry, Key Vault, Storage, Logs
+
+## 🎯 Cursor Integration
+
+### 1. MCP Configuration
+
+Use the configuration from `cursor-mcp-config.json`:
+
+```json
+{
+  "mcpServers": {
+    "graphiti-memory": {
+      "url": "https://your-mcp-server-url/sse",
+      "description": "Graphiti knowledge graph memory system for AI agents"
+    }
+  }
+}
+```
+
+### 2. Cursor Setup
+
+1. Open Cursor IDE
+2. Go to Settings (Cmd/Ctrl + ,)
+3. Search for "MCP"
+4. Add the configuration from step 1
+5. Restart Cursor
+
+### 3. Usage
+
+Once configured, AI agents in Cursor will automatically:
+- Store important information in the knowledge graph
+- Retrieve relevant context from previous sessions
+- Maintain conversation history and learned preferences
+- Build understanding over time
+
+## 🔧 Configuration
+
+### Environment Variables
+
+The deployment uses these key environment variables:
+
+```bash
+AZURE_ENV_NAME="graphiti-prod"
+AZURE_LOCATION="westus2"
+AZURE_SUBSCRIPTION_ID="your-subscription-id"
+AZURE_TENANT_ID="your-tenant-id"
+OPENAI_API_KEY="your-openai-api-key"
+NEO4J_PASSWORD="GRaPh@Cr0wn"
+NEO4J_USER="neo4j"
+MODEL_NAME="gpt-4.1-mini"
+```
+
+### Customization
+
+You can customize the deployment by:
+- Modifying `infra/main.bicep` for infrastructure changes
+- Updating `azure.yaml` for service configuration
+- Adjusting environment variables in `setup.sh`
+
+## 🔍 Monitoring and Troubleshooting
+
+### Health Checks
+
+```bash
+# Check Container Apps status
+az containerapp list --resource-group graphiti-prod-{token}-rg --output table
+
+# Check Neo4j container
+az container list --resource-group graphiti-prod-{token}-rg --output table
+
+# View MCP server logs
+az containerapp logs show --name graphiti-prod-{token}-mcp --resource-group graphiti-prod-{token}-rg
+```
+
+### Common Issues
+
+1. **OpenAI API Key**: Ensure your API key is valid and has sufficient credits
+2. **Neo4j Connection**: Check container logs if database connection fails
+3. **MCP Integration**: Verify the MCP server URL is correct in Cursor settings
+
+## 🧹 Cleanup
+
+To remove all Azure resources:
+
+```bash
+azd down
+```
+
+This will delete all resources and stop billing.
 
 ## 📚 Documentation
 
-For detailed information about the system architecture, features, and implementation, see:
-- `Prototype/README.md` - Prototype-specific documentation
-- `Prototype/PROJECT_SUMMARY.md` - Comprehensive project analysis
+For detailed information:
+- [`DEPLOYMENT_INSTRUCTIONS.md`](DEPLOYMENT_INSTRUCTIONS.md) - Step-by-step deployment guide
+- [`DEPLOYMENT_SUMMARY.md`](DEPLOYMENT_SUMMARY.md) - Current deployment status
+- [Graphiti Documentation](https://github.com/getzep/graphiti) - Official Graphiti project
 
-## 🤝 Support
+## 🔒 Security
 
-This prototype demonstrates the complete user interface and interaction patterns for the StudyMgmt system. Each module provides a realistic representation of functionality that can be directly implemented in the development phase.
+- **Secrets Management**: OpenAI API key and Neo4j password stored in Azure Key Vault
+- **Network Security**: Container apps with managed ingress and egress
+- **Access Control**: Azure RBAC for resource management
+- **Encryption**: Data encrypted at rest and in transit
+
+## 🤝 Contributing
+
+This project is optimized for the specific Azure deployment scenario. To contribute:
+
+1. Fork the repository
+2. Create a feature branch
+3. Test your changes with `azd provision`
+4. Submit a pull request
 
 ## 📄 License
 
-This project is developed for CrownBio and is proprietary software for internal use.
+This project is for CrownBio internal use. The underlying Graphiti project is licensed under the Apache License 2.0.
+
+## 📞 Support
+
+For support:
+- **Azure Issues**: Check Azure documentation or contact Azure support
+- **Graphiti Issues**: See the [Graphiti repository](https://github.com/getzep/graphiti)
+- **Deployment Issues**: Review logs and check the troubleshooting section
 
 ---
 
-**Note**: This is a high-fidelity prototype designed for demonstration and development reference. All data shown is simulated for illustration purposes. 
+**Note**: This deployment has been optimized to include only essential services for cost efficiency. The API service has been removed as it was not needed for MCP functionality. 
